@@ -1,0 +1,275 @@
+{
+	"info": {
+		"_postman_id": "8b640932-66d7-447d-9ef7-528b32d26c58",
+		"name": "Productos API",
+		"description": "Colección para probar endpoints del backend de productos en la prueba técnica de Rohim",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27397145"
+	},
+	"item": [
+		{
+			"name": "Seed de productos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}productos/seed",
+					"host": [
+						"{{baseUrl}}productos"
+					],
+					"path": [
+						"seed"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar productos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}productos",
+					"host": [
+						"{{baseUrl}}productos"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Listar productos",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/productos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"productos"
+							]
+						}
+					},
+					"_postman_previewlanguage": "",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "[\r\n    {\r\n        \"id\": 2,\r\n        \"nombre\": \"Teclado\",\r\n        \"precio\": 35.00,\r\n        \"stock\": 30\r\n    },\r\n    {\r\n        \"id\": 3,\r\n        \"nombre\": \"Monitor\",\r\n        \"precio\": 150.00,\r\n        \"stock\": 10\r\n    },\r\n    {\r\n        \"id\": 4,\r\n        \"nombre\": \"Laptop 2\",\r\n        \"precio\": 999.99,\r\n        \"stock\": 5\r\n    }\r\n]"
+				}
+			]
+		},
+		{
+			"name": "Crear producto",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nombre\": \"Laptop 2\",\n  \"precio\": 999.99,\n  \"stock\": 5\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}productos",
+					"host": [
+						"{{baseUrl}}productos"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear producto",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nombre\": \"Laptop 2\",\n  \"precio\": 999.99,\n  \"stock\": 5\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/productos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"productos"
+							]
+						}
+					},
+					"_postman_previewlanguage": "",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\r\n    \"id\": 5,\r\n    \"nombre\": \"Laptop 2\",\r\n    \"precio\": 999.99,\r\n    \"stock\": 5\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Eliminar producto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}productos/1",
+					"host": [
+						"{{baseUrl}}productos"
+					],
+					"path": [
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Eliminar producto",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/productos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"productos",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Actualizar producto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"id\": 3,\r\n        \"nombre\": \"Monitor modificado\",\r\n        \"precio\": 160,\r\n        \"stock\": 15\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}productos",
+					"host": [
+						"{{baseUrl}}productos"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar producto",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 2,\r\n    \"nombre\": \"Teclado modificado\",\r\n    \"precio\": 35.00,\r\n    \"stock\": 30\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/productos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"productos"
+							]
+						}
+					},
+					"_postman_previewlanguage": "",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\r\n    \"id\": 2,\r\n    \"nombre\": \"Teclado modificado\",\r\n    \"precio\": 35.00,\r\n    \"stock\": 30\r\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080/",
+			"type": "string"
+		}
+	]
+}
