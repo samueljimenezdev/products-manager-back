@@ -4,6 +4,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 
 import java.math.BigDecimal;
 
@@ -14,10 +17,13 @@ public class Producto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
     private String nombre;
 
+    @DecimalMin(value = "0.0")
     private BigDecimal precio;
 
+    @Min(value = 0)
     private Integer stock;
 
     public Producto() {}
@@ -47,6 +53,14 @@ public class Producto {
     }
 
     public void setStock(Integer stock) {
+        this.stock = stock;
+    }
+
+
+    //Necesario para el seed:
+    public Producto(String nombre, BigDecimal precio, Integer stock) {
+        this.nombre = nombre;
+        this.precio = precio;
         this.stock = stock;
     }
 
